@@ -1,0 +1,111 @@
+:root {
+    --primary: #4a90e2;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --bg: #f8f9fa;
+    --text: #2c3e50;
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--bg); 
+    color: var(--text);
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.screen { 
+    width: 100%;
+    max-width: 500px; 
+    background: white; 
+    padding: 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+h1, h2 { color: var(--primary); margin-top: 0; }
+
+/* Dashboard Buttons */
+.topic-btn { 
+    background: white; 
+    border: 2px solid #eee;
+    padding: 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.topic-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.btn-main, .btn-save {
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Game Columns */
+#game-container { 
+    display: flex; 
+    gap: 12px; 
+    margin-top: 20px; 
+}
+
+.column { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+
+.match-btn { 
+    padding: 12px 8px; 
+    border: 2px solid #eee; 
+    border-radius: 10px; 
+    cursor: pointer;
+    background: #fff; 
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.cn-text { font-size: 1.1rem; font-weight: bold; }
+.py-text { color: #888; font-size: 0.8rem; }
+
+/* States */
+.selected { border-color: var(--primary); background: #ebf3ff; transform: scale(1.02); }
+.correct { background: #d4f8e2; border-color: var(--success); color: #1e7e34; opacity: 0.5; pointer-events: none; }
+.wrong { background: #ffe3e3; border-color: var(--danger); animation: shake 0.3s; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 400px) {
+    .match-btn { font-size: 0.85rem; padding: 8px 4px; }
+    .cn-text { font-size: 1rem; }
+    #game-container { gap: 8px; }
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}

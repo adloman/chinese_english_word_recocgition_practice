@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Subject 3 Matcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="screen-landing" class="screen">
+        <h1>Can You Remember?</h1>
+        <div id="topic-list"></div>
+        <button class="btn-main" onclick="showScreen('screen-editor')">+ Add New Topic</button>
+    </div>
+
+    <div id="screen-editor" class="screen" style="display:none;">
+        <h2>Create Topic</h2>
+        <input type="text" id="topic-name-input" placeholder="Topic Name">
+        <textarea id="bulk-input" rows="8" placeholder="English, Chinese, Pinyin"></textarea>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+            <button class="btn-save" onclick="saveTopic()" style="flex:1;">Save Topic</button>
+            <button class="btn-cancel" onclick="showScreen('screen-landing')" style="flex:1;">Cancel</button>
+        </div>
+    </div>
+
+    <div id="screen-game" class="screen" style="display:none;">
+        <div style="margin-bottom: 15px; background: #eef2f7; padding: 10px; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <input type="checkbox" id="mute-english-game"> 
+            <label for="mute-english-game" style="font-weight: bold; font-size: 0.9rem;">🔇 Mute English</label>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 id="current-topic-title" style="margin:0; font-size: 1.1rem;">Topic</h2>
+            <div style="font-weight: bold;">Left: <span id="words-remaining">0</span></div>
+        </div>
+        <hr>
+
+        <div id="game-container" style="display: flex; gap: 10px; margin-top: 10px;">
+            <div id="column-cn" style="flex: 1; display: flex; flex-direction: column; gap: 10px;"></div>
+            <div id="column-en" style="flex: 1; display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+
+        <button class="btn-cancel" style="margin-top:20px; width: 100%;" onclick="showScreen('screen-landing')">Quit Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
